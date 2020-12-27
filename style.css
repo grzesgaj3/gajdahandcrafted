@@ -8,7 +8,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Cambo');
 @import url('https://fonts.googleapis.com/css?family=Lustria');
-
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 /*------------------------------------------------------------------
     IMPORT FILES
 -------------------------------------------------------------------*/
@@ -311,7 +311,7 @@ a img.aligncenter {
 .navbar-dark .navbar-nav .nav-link{
 	color: #241c65;
 	letter-spacing: 1px;
-	font-size: 14px;
+	font-size: 12px;
 	position: relative;
 }
 .navbar-dark .navbar-nav .nav-link:hover{
@@ -506,7 +506,7 @@ xclip
 }
 
 .section.db {
-    background-color: #ffffffff;
+    background-color: #111111;
 }
 
 .section.color1 {
@@ -612,6 +612,49 @@ xclip
   width: 100%;
   border-radius: 10px;
 }
+
+/* -------------------------------- 
+
+Newsletter button
+
+-------------------------------- */
+.btn-hover-lt-mail{
+    margin-right: auto;
+    margin-left: auto;
+	border: none;
+	padding: 10px 44px;
+	font-size: 20px;
+	position: relative;
+    display: block;
+    background: #111111
+
+}
+
+.btn-hover-lt-mail::before {
+	transition: all 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	content: '';
+	width: 50%;
+	height: 100%;
+	background: #241c65;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 10px 0px 0px 10px;
+}
+
+.btn-hover-lt-mail .btn-text {
+  color: white;
+  mix-blend-mode: difference;
+}
+.btn-hover-lt-mail:hover::before {
+  background: #241c65;
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+
+
 
 
 .right-box-pro{
@@ -2124,7 +2167,12 @@ select.mobile-device {
 	top: 100%;
 	left: 0px;
 }
-
+.contact_form_mail {
+    border: 1px solid #ededed;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
+    background-color: #111111;
+    padding: 40px 30px;
+}
 /*------------------------------------------------------------------
     FOOTER
 -------------------------------------------------------------------*/
@@ -2505,10 +2553,77 @@ select.mobile-device {
     BUTTONS
 -------------------------------------------------------------------*/
 
-.navbar-default .btn-light {
-    padding: 0 20px;
-    margin-left: 15px;
-}
+.button {
+    font-size: 1em;
+    padding: 10px;
+    color: #fff;
+    border: 2px solid #06D85F;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+  }
+  .button:hover {
+    background: #06D85F;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: relative;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+  }
 
 .btn {
     border: 0 !important;
@@ -2533,5 +2648,69 @@ select.mobile-device {
 .btn-light:hover,
 .btn-light:focus {
     border-color: rgba(255, 255, 255, 0.6);
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(247, 247, 247, 0.6);
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: left;
+    font-size: 18px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #241c65;
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;}
+  
+ 
+  }
